@@ -1,0 +1,20 @@
+@model CancelAccountVerificationViewModel
+@{
+    ViewData["Title"] = "Cancel account";
+}
+
+<div class="d-flex align-items-center justify-content-center">
+    <div class="card login-card">
+        <div class="card-header">
+            <h5 class="card-title">Cancel Account</h5>
+        </div>
+        <form asp-controller="Account" asp-action="CancelAccountVerification" method="post">
+            <input type="hidden" asp-for="UserId" />
+            <input type="hidden" asp-for="Token" />
+            <div class="card-body">
+                <p>Were you not expecting this account? Cancelling deletes it permanently.</p>
+                <button class="btn btn-danger" type="submit">Cancel the account</button>
+            </div>
+        </form>
+    </div>
+</div>

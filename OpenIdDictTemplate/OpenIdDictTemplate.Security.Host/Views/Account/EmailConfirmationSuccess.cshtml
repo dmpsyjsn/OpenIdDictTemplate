@@ -1,0 +1,18 @@
+@model EmailConfirmationSuccessViewModel
+@{
+    ViewData["Title"] = "Email sent";
+}
+
+<div class="d-flex align-items-center justify-content-center">
+    <div class="card login-card">
+        <div class="card-header">
+            <h5 class="card-title">Email Confirmation Sent</h5>
+        </div>
+        <div class="card-body">
+            <div class="alert alert-success">
+                If the account is still awaiting confirmation, a new confirmation email has been sent.
+            </div>
+            <a class="btn btn-primary" href="@Model.LoginUrl">Login</a>
+        </div>
+    </div>
+</div>

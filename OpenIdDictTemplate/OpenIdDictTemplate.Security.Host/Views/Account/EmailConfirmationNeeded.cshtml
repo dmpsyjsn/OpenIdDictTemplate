@@ -1,0 +1,21 @@
+@model EmailConfirmationNeededViewModel
+@{
+    ViewData["Title"] = "Email confirmation needed";
+}
+
+<div class="d-flex align-items-center justify-content-center">
+    <div class="card login-card">
+        <div class="card-header">
+            <h5 class="card-title">Email Confirmation Needed</h5>
+        </div>
+        <form asp-controller="Account" asp-action="EmailConfirmationNeeded" method="post">
+            <input type="hidden" asp-for="UserId" />
+            <div class="card-body">
+                <div class="alert alert-danger">
+                    Your email address has not been confirmed. Click the button below to send a confirmation email.
+                </div>
+                <button class="btn btn-primary" type="submit">Send Confirmation Email</button>
+            </div>
+        </form>
+    </div>
+</div>

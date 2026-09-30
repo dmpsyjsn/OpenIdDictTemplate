@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/Migrations/">
+    <Project Path="OpenIdDictTemplate.Security.Migrations.SqlServer/OpenIdDictTemplate.Security.Migrations.SqlServer.csproj" />
+    <Project Path="OpenIdDictTemplate.Security.Migrations.Postgres/OpenIdDictTemplate.Security.Migrations.Postgres.csproj" />
+    <Project Path="OpenIdDictTemplate.Security.Migrations.Sqlite/OpenIdDictTemplate.Security.Migrations.Sqlite.csproj" />
+  </Folder>
+  <Folder Name="/Testing/">
+    <Project Path="OpenIdDictTemplate.Security.Testing.JavascriptClient/OpenIdDictTemplate.Security.Testing.JavascriptClient.csproj" />
+    <Project Path="OpenIdDictTemplate.Security.Testing.ResourceApi/OpenIdDictTemplate.Security.Testing.ResourceApi.csproj" />
+  </Folder>
+  <Project Path="OpenIdDictTemplate.Security.Host/OpenIdDictTemplate.Security.Host.csproj" />
+  <Project Path="OpenIdDictTemplate.Security.Logic/OpenIdDictTemplate.Security.Logic.csproj" />
+</Solution>

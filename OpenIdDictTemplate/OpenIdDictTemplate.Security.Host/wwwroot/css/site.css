@@ -1,0 +1,44 @@
+html, body {
+    font-family: Arial, sans-serif;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.site-navbar {
+    background-color: #585858;
+}
+
+.site-content {
+    padding: 60px 15px 40px;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 0;
+}
+
+.login-card .card-header {
+    border-radius: 0;
+}
+
+.login-card .card-title {
+    margin: 0;
+    font-weight: bold;
+    color: #0d6efd;
+    cursor: default;
+}
+
+.login-card .validation-summary-errors ul {
+    color: #a94442;
+    font-size: 12px;
+    font-weight: 700;
+    padding-left: 20px;
+}
+
+.request-id {
+    color: #6c757d;
+    font-size: 0.85rem;
+}

@@ -1,0 +1,4 @@
+@JavascriptClient = https://localhost:7041
+
+### The OIDC settings served to the browser
+GET {{JavascriptClient}}/config.json

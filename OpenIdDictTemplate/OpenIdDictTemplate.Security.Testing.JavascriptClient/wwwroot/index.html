@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript test client</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2rem; }
+        pre { background: #f4f4f4; padding: 1rem; overflow-x: auto; white-space: pre-wrap; word-break: break-all; }
+    </style>
+</head>
+<body>
+<h1>JavaScript test client</h1>
+
+<button id="login-button">Login</button>
+<button id="refresh-button">Refresh</button>
+<button id="api-button">Call API</button>
+<button id="logout-button">Logout</button>
+
+<h3>Profile</h3>
+<pre id="profile">(not signed in)</pre>
+<h3>Token expiry</h3>
+<pre id="expiry"></pre>
+<h3>Access token</h3>
+<pre id="access-token"></pre>
+<h3>API response</h3>
+<pre id="api-response"></pre>
+
+<script src="https://cdn.jsdelivr.net/npm/oidc-client-ts@3.1.0/dist/browser/oidc-client-ts.min.js"></script>
+<script src="./oidc.js"></script>
+<script src="./index.js"></script>
+</body>
+</html>

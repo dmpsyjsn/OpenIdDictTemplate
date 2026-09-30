@@ -1,0 +1,22 @@
+@{
+    ViewData["Title"] = "Account Verification";
+    var verificationMessage = $"{ViewBag.VerificationMessage}";
+}
+
+<div class="d-flex align-items-center justify-content-center">
+    <div class="card login-card">
+        <div class="card-header">
+            <h5 class="card-title">Account Verification</h5>
+        </div>
+        <div class="card-body">
+            @if (verificationMessage == "InvalidToken")
+            {
+                <p>The email confirmation link has expired. Please click <a href="@ViewBag.EmailConfirmationLink">here</a> to send a new confirmation email.</p>
+            }
+            else
+            {
+                <p>@verificationMessage</p>
+            }
+        </div>
+    </div>
+</div>

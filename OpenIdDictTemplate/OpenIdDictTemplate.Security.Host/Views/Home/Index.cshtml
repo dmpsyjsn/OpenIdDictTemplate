@@ -1,0 +1,25 @@
+@{
+    ViewData["Title"] = "Home";
+    var roles = User.Claims.Where(c => c.Type == System.Security.Claims.ClaimTypes.Role).Select(c => c.Value).ToList();
+}
+
+<div class="container">
+    @if (User.Identity?.IsAuthenticated == true)
+    {
+        <p>You are signed in as</p>
+        <h2>@User.Identity.Name</h2>
+        @if (roles.Count > 0)
+        {
+            <p>Roles: @string.Join(", ", roles)</p>
+        }
+        <hr />
+        <form asp-controller="Account" asp-action="Logout" method="post">
+            <button type="submit" class="btn btn-dark">Sign out</button>
+        </form>
+    }
+    else
+    {
+        <p>You are not signed in</p>
+        <p><a class="btn btn-sm btn-dark" asp-controller="Account" asp-action="Login">Sign in</a></p>
+    }
+</div>

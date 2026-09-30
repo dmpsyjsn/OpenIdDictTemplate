@@ -1,0 +1,25 @@
+@model ErrorViewModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<div class="error-page container">
+    <h1>Error</h1>
+
+    <div class="alert alert-danger">
+        Sorry, there was an error
+        @if (!string.IsNullOrEmpty(Model.Error))
+        {
+            <strong><em>: @Model.Error</em></strong>
+            if (!string.IsNullOrEmpty(Model.ErrorDescription))
+            {
+                <div>@Model.ErrorDescription</div>
+            }
+        }
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.RequestId))
+    {
+        <div class="request-id">Request Id: @Model.RequestId</div>
+    }
+</div>

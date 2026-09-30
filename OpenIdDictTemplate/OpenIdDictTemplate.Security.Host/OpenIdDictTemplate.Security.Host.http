@@ -1,0 +1,27 @@
+@Host = https://localhost:7017
+
+# Copy an access token for an Admin user from the JavascriptClient page (https://localhost:7041).
+@token = PASTE_ACCESS_TOKEN_HERE
+
+### Discovery document
+GET {{Host}}/.well-known/openid-configuration
+
+### Invite a new user (requires Admin role + security_admin scope)
+POST {{Host}}/admin/users/create
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "email": "new.user@example.com",
+  "firstName": "New"
+}
+
+### Change a user's email/username
+POST {{Host}}/admin/users/update-email
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": "PASTE_USER_ID",
+  "userName": "changed@example.com"
+}

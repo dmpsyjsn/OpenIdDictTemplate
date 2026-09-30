@@ -1,0 +1,8 @@
+@ResourceApi = https://localhost:7063
+
+# Copy an access token from the JavascriptClient page (https://localhost:7041).
+@token = PASTE_ACCESS_TOKEN_HERE
+
+### Returns the caller's claims (requires the "api" scope)
+GET {{ResourceApi}}/identity
+Authorization: Bearer {{token}}

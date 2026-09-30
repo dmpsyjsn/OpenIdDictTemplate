@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign-in callback</title>
+</head>
+<body>
+<p>Signing in...</p>
+
+<script src="https://cdn.jsdelivr.net/npm/oidc-client-ts@3.1.0/dist/browser/oidc-client-ts.min.js"></script>
+<script src="./oidc.js"></script>
+<script>
+    (async () => {
+        try {
+            const { userManager } = await createUserManager();
+            await userManager.signinRedirectCallback();
+        } catch (e) {
+            console.error(e);
+        } finally {
+            window.location.replace('./index.html');
+        }
+    })();
+</script>
+</body>
+</html>

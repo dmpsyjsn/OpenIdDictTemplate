@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>38fb6292-1f95-43a9-8ce0-a914c02bf57e</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.12">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="OpenIddict.AspNetCore" Version="7.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OpenIdDictTemplate.Security.Logic\OpenIdDictTemplate.Security.Logic.csproj" />
+    <ProjectReference Include="..\OpenIdDictTemplate.Security.Migrations.Sqlite\OpenIdDictTemplate.Security.Migrations.Sqlite.csproj" />
+    <ProjectReference Include="..\OpenIdDictTemplate.Security.Migrations.SqlServer\OpenIdDictTemplate.Security.Migrations.SqlServer.csproj" />
+    <ProjectReference Include="..\OpenIdDictTemplate.Security.Migrations.Postgres\OpenIdDictTemplate.Security.Migrations.Postgres.csproj" />
+  </ItemGroup>
+
+</Project>
