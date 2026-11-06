@@ -1,14 +1,14 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.Extensions.Options;
+using OpenIdDictTemplate.Security.Host.Common;
 using OpenIdDictTemplate.Security.Host.Configuration;
 using OpenIdDictTemplate.Security.Host.ViewModels;
-using OpenIdDictTemplate.Security.Host.Infrastructure;
 using OpenIdDictTemplate.Security.Logic.Abstractions;
 using OpenIdDictTemplate.Security.Logic.Data;
 using OpenIdDictTemplate.Security.Logic.Users;
-using UsersLogic = OpenIdDictTemplate.Security.Logic.Users;
 
 namespace OpenIdDictTemplate.Security.Host.Controllers;
 
@@ -20,7 +20,7 @@ public class AccountController(
     IOptions<SecurityOptions> securityOptions,
     IHandleCommandAsync<RequestPasswordReset> requestPasswordReset,
     IHandleCommandAsync<ResendEmailConfirmation> resendEmailConfirmation,
-    IHandleCommandAsync<UsersLogic.CancelAccountVerification> cancelAccountVerification) : Controller
+    IHandleCommandAsync<CancelAccountVerification> cancelAccountVerification) : Controller
 {
     private string DefaultRedirectUrl => securityOptions.Value.DefaultRedirectUrl;
 
@@ -30,6 +30,7 @@ public class AccountController(
 
     [HttpPost("login")]
     [ValidateAntiForgeryToken]
+    [EnableRateLimiting(CommonConstants.LoginLimiter)]
     public async Task<IActionResult> Login(LoginViewModel model)
     {
         if (!ModelState.IsValid)
@@ -116,6 +117,7 @@ public class AccountController(
 
     [HttpPost("emailConfirmationNeeded")]
     [ValidateAntiForgeryToken]
+    [EnableRateLimiting(CommonConstants.StrictLimiter)]
     public async Task<IActionResult> EmailConfirmationNeeded(EmailConfirmationNeededViewModel model)
     {
         await resendEmailConfirmation.HandleAsync(new ResendEmailConfirmation(model.UserId), HttpContext.RequestAborted);
@@ -127,6 +129,7 @@ public class AccountController(
 
     [HttpPost("forgotPassword")]
     [ValidateAntiForgeryToken]
+    [EnableRateLimiting(CommonConstants.StrictLimiter)]
     public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel model)
     {
         if (!ModelState.IsValid)
@@ -187,7 +190,7 @@ public class AccountController(
     public async Task<IActionResult> CancelAccountVerification(CancelAccountVerificationViewModel model)
     {
         var result = await cancelAccountVerification.HandleAsync(
-            new UsersLogic.CancelAccountVerification(model.UserId, model.Token), HttpContext.RequestAborted);
+            new CancelAccountVerification(model.UserId, model.Token), HttpContext.RequestAborted);
 
         if (!result.IsSuccess)
         {
