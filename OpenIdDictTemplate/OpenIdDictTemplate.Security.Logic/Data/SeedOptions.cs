@@ -46,8 +46,6 @@ public class SeedClient
     /// <summary>"implicit", "explicit", "external" or "systematic".</summary>
     public string ConsentType { get; set; } = "implicit";
 
-    public bool RequirePkce { get; set; } = true;
-
     /// <summary>Allows the client (a resource server) to call the introspection endpoint.</summary>
     public bool AllowIntrospection { get; set; }
 

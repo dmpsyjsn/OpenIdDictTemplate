@@ -4,7 +4,7 @@ A copy-from template for adding login, an OpenID Connect server and token-protec
 
 It provides:
 
-- An OpenIddict server with authorization code (PKCE) and refresh token flows, introspection, userinfo and end-session endpoints.
+- An OpenIddict server with authorization code (PKCE required for all clients) and refresh token flows, introspection, userinfo and end-session endpoints.
 - MVC login, logout, consent, forgot/reset password and email confirmation pages.
 - An admin API to invite users, secured by an `Admin` role plus a scope.
 - A sample resource API that validates tokens by introspection.

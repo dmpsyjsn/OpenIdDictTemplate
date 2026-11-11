@@ -125,10 +125,6 @@ public class OpenIddictSeeder(
 
         foreach (var scope in seed.Scopes)
             descriptor.Permissions.Add(Permissions.Prefixes.Scope + scope);
-
-        if (usesAuthorizationCode && seed.RequirePkce)
-            descriptor.Requirements.Add(Requirements.Features.ProofKeyForCodeExchange);
-
         return descriptor;
     }
 }

@@ -40,7 +40,8 @@ public static class OpenIddictServerSetup
                 server.SetAccessTokenLifetime(security.AccessTokenLifetime);
 
                 server.AllowAuthorizationCodeFlow()
-                    .AllowRefreshTokenFlow();
+                    .AllowRefreshTokenFlow()
+                    .RequireProofKeyForCodeExchange();
 
                 // Scopes advertised in discovery; the seeded scopes (e.g. "api") are registered alongside.
                 var seedScopes = configuration.GetSection($"{SeedOptions.SectionName}:Scopes").GetChildren().Select(c => c.Key);
